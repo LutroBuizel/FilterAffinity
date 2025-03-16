@@ -157,12 +157,14 @@ function bindEvents() {
 		if (el.parentNode.classList.contains('filter-affinity-container')) {
 			if (el.classList.contains('add')) {
 				const id = findClosest(el, filterSelector).id.split('sid-')[1];
-				const artistName = descriptions[id].username;
+				const artistName = descriptions[id].lower;
 				sendMessage( { type: 'addArtist', data: artistName } );
 			} else if (el.classList.contains('remove')) {
 				const id = findClosest(el, filterSelector).id.split('sid-')[1];
-				const artistName = descriptions[id].username;
-				sendMessage({ type: 'removeArtist', data: artistName });
+				const artistUsername = descriptions[id].lower;
+				const artistDisplayName = descriptions[id].username;
+				const artistNames = [ artistUsername, artistDisplayName];
+				sendMessage({ type: 'removeArtist', data: artistNames.join() });
 			}
 		}
 	});

@@ -117,18 +117,18 @@ function addArtist( name ) {
 	});
 }
 
-function removeArtist( name ) {
-	const artist = name.toLowerCase();
+function removeArtist( names ) {
 	storage.get( null, function( data ) {
 		const artists = data.blocklistArtists || [];
-		const index = artists.indexOf( artist );
-
-		if( index > -1 ) {
-			artists.splice( index, 1 );
-		} else {
-			return;
-		}
-
+		names.split(',').forEach(name => {
+			const artist = name.toLowerCase();
+			const index = artists.indexOf( artist );
+			if( index > -1 ) {
+				artists.splice( index, 1 );
+			} else {
+				return;
+			}
+		});
 		data.blocklistArtists = artists;
 
 		storage.set( { 'blocklistArtists': artists }, function() {
