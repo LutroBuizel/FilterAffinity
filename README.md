@@ -1,7 +1,10 @@
 # <img src="128icon.png" alt="Markdown Monster icon" style="width: 64px; vertical-align: middle;" /> Filter Affinity
+
+## Original Description by Spotted Squeak
+
 Filters out unwanted artists/images while browsing on Furaffinity.net.
 
-Ever been browsing all the great art on FurAffinity and come across something you didn't like?  Yeah, me too.  So I made this.
+Ever been browsing all the great art on FurAffinity and come across something you didn't like?  Yeah, me too. So I made this.
 
 Welcome to Filter Affinity!
 
@@ -13,8 +16,29 @@ You can also filter by the submission rating, and even just block out the entire
 
 No longer worry about scarring your eyes with material you'd rather not stumble across.  Try out Filter Affinity today!
 
-Available at:
+## Note from Lutro
+
+Hi, [Lutro here](https://www.furaffinity.net/user/lutro/). I figured that this code would eventually go out of date eventually, with the unfortunate passing of Spotted Squeak. I told myself that I'd try to maintain it. It's the least I could do for the community after losing someone so great. Thankfully, he [published the source code here on GitHub](https://github.com/SpottedSqueak/FilterAffinity). I've since [forked the project](https://github.com/LutroBuizel/FilterAffinity) so I can make updates.
+
+Most of this development was done by Spotted. I'm doing my best to limit my own involvement to just making it work again, whenever FA changes something that makes something here break.
+
+See below for links to the available extensions. Obviously, I cannot update the original entries, so I had to make my own.
+
+## Current Extension (version `1.6.0` / March 2025 and newer) Available at:
+
+N/A (work in progress!)
+
+## Old Eextension (version `1.5.6` / 2024 and older) Available at:
 
 **Chrome/Opera/Edge:** https://chrome.google.com/webstore/detail/filter-affinity/bcnniocfbnmaiakhpgpeicghfogdjfhe
 
 **Firefox:** https://addons.mozilla.org/en-US/firefox/addon/filter-affinity/
+
+## Reporting Issues
+
+I'm in FA's Discord under "Lutro", but you can also [report an issue in GitHub directly](https://github.com/LutroBuizel/FilterAffinity/issues) if you're inclined!
+
+## Change History
+
+- `1.6.0` on `2025.03.16`: Fixed selecting usernames after FA's update to allow users to change their display names
+- `1.5.6` and older: The final version Spotted Squeak published
