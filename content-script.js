@@ -169,6 +169,7 @@ function bindEvents() {
 		}
 	});
 }
+
 // Build description info from data on the page
 function buildDescription() {
 	if (!galleryDivs.length) return;
@@ -178,8 +179,8 @@ function buildDescription() {
 		const links = div.querySelectorAll('figcaption a');
 		newDesc[id] = {
 			username: links[1].title, // Display Name
-			// Grab username from "https://www.furaffinity.net/user/sciggles/" the title element
-			// now has a user's display name, which can vary.
+			// Grab username from URL: "https://www.furaffinity.net/user/sciggles/"
+			// The title element now has a user's display name, which can vary.
 			lower: getUsername(links[1].href),
 			title: links[0].title,
 			description: '',
