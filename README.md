@@ -46,5 +46,5 @@ I'm in FA's Discord under "Lutro", but you can also [report an issue in GitHub d
   - Fixed selecting usernames after FA's update to allow users to change their display names
   - Both usernames AND display names are now filtered
     - When clicking 'Add Artist' plus button, the username is added
-	- When clicking 'Remove Artist' minus sign, both the username and current display name are removed
+    - When clicking 'Remove Artist' minus sign, both the username and current display name are removed
 - `1.5.6` and older: The final version Spotted Squeak published
