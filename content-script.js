@@ -169,7 +169,9 @@ function buildDescription() {
 		const id = parseFloat(div.id.split('sid-')[1]);
 		const links = div.querySelectorAll('figcaption a');
 		newDesc[id] = {
-			username: links[1].title,
+			// Grab username from "https://www.furaffinity.net/user/sciggles/" the title element
+			// now has a user's display name, which can vary.
+			username: links[1].href.split('/').filter(str => str.length > 0).last(),
 			title: links[0].title,
 			description: '',
 		};
