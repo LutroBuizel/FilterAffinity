@@ -22,6 +22,8 @@ Hi, [Lutro here](https://www.furaffinity.net/user/lutro/). I figured that this c
 
 Most of this development was done by Spotted. I'm doing my best to limit my own involvement to just making it work again, whenever FA changes something that makes something here break.
 
+Originally, Spotted had a ko-fi link up in the About tab of the extension. I've removed that, as I'm not sure that account is maintained anymore, and I definitely don't want people spending money that'll go nowhere. If there's some fund of Spotted that is still active, I'll happily link to that instead. Let me know if one does!
+
 See below for links to the available extensions. Obviously, I cannot update the original entries, so I had to make my own.
 
 ## Current Extension (version `1.6.0` / March 2025 and newer) Available at:
