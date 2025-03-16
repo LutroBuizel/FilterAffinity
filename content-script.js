@@ -66,7 +66,7 @@ function filter( data ) {
 	if( data.blocklistArtists.length > 0 ) {
 		galleryDivsSubset.forEach( (div) => {
 			id = parseFloat(div.id.split('sid-')[1] );
-			if (data.blocklistArtists.includes(descriptions[id].username.toLowerCase())) {
+			if (artistInList(id, data.blocklistArtists)) {
 				div.classList.add(filterClass);
 			} else {
 				newGallerySubset.push(div);
@@ -127,12 +127,18 @@ function filter( data ) {
 		galleryDivs.forEach((div) => {
 			if (div.classList.contains(filterClass)) {
 				id = parseFloat(div.id.split('sid-')[1]);
-				if (data.allowlistArtists.includes(descriptions[id].username.toLowerCase())) {
+				if (artistInList(id, data.allowlistArtists)) {
 					div.classList.remove(filterClass);
 				}
 			}
 		});
 	}
+}
+
+function artistInList(id, artistList) {
+	let artistUsername = descriptions[id].lower.toLowerCase();
+	let artistDisplayName = descriptions[id].username.toLowerCase();
+	return artistList.includes(artistUsername) || artistList.includes(artistDisplayName);
 }
 
 function sortRequest( request, sender, resp ) {
@@ -169,14 +175,23 @@ function buildDescription() {
 		const id = parseFloat(div.id.split('sid-')[1]);
 		const links = div.querySelectorAll('figcaption a');
 		newDesc[id] = {
+			username: links[1].title, // Display Name
 			// Grab username from "https://www.furaffinity.net/user/sciggles/" the title element
 			// now has a user's display name, which can vary.
-			username: links[1].href.split('/').filter(str => str.length > 0).last(),
+			lower: getUsername(links[1].href),
 			title: links[0].title,
 			description: '',
 		};
 	});
 	return newDesc;
+}
+
+function getUsername(artistUrl) {
+	if (artistUrl === null || artistUrl === undefined || artistUrl.length <= 0) {
+		return '';
+	}
+	let elements = artistUrl.split('/').filter(str => str.length > 0);
+	return elements.length > 0 ? elements[elements.length - 1] : '';
 }
 
 function init() {
@@ -187,19 +202,13 @@ function init() {
 
 	bindEvents();
 
-	const descriptionScripts = document.querySelectorAll( 'body script' );
-	let descriptionJSON = null;
-
-	for (let i = 0; i < descriptionScripts.length; i++) {
-		descriptionJSON = descriptionScripts[i].textContent;
-		if (descriptionJSON.indexOf('var descriptions') >= 0) break;
-		descriptionJSON = null;
-	}
-	if (!descriptionJSON) {
+	let existingFADescriptionScriptDataElement = document.getElementById('js-submissionData');
+	if (existingFADescriptionScriptDataElement === null || existingFADescriptionScriptDataElement.textContent.length <= 0) {
 		descriptions = buildDescription();
 		if (!descriptions) return;
+	} else {
+		descriptions = JSON.parse(existingFADescriptionScriptDataElement.textContent);
 	}
-	else descriptions = JSON.parse((descriptionJSON.split('var descriptions = ')[1]).split('}};')[0] + '}}');
 
 	//Get filter data and actually filter
 	sendMessage({ type: 'requestData' }, (error) => {
