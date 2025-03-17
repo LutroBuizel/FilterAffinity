@@ -28,7 +28,9 @@ See below for links to the available extensions. Obviously, I cannot update the 
 
 ## Current Extension (version `1.6.0` / March 2025 and newer) Available at:
 
-N/A (work in progress!)
+**Firefox:** https://addons.mozilla.org/en-US/firefox/addon/filter-affinity-new/
+
+(I don't know if Chrome will support this anymore, given the Manifest update. Only Firefox for now!)
 
 ## Old Eextension (version `1.5.6` / 2024 and older) Available at:
 
